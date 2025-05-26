@@ -86,3 +86,54 @@ button:hover {
 #gorilaImg.atacando {
   transform: scale(1.1) rotate(-5deg);
 }
+
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  header h1 {
+    font-size: 1.5em;
+  }
+
+  #painel-status {
+    font-size: 1em;
+  }
+
+  #botoes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  button {
+    width: 90%;
+    max-width: 300px;
+    margin: 8px 0;
+  }
+
+  #campoHumanos {
+    grid-template-columns: repeat(auto-fill, minmax(30px, 1fr));
+    gap: 3px;
+  }
+
+  #log {
+    max-width: 100%;
+    height: 150px;
+  }
+
+  #gorilaImg {
+    width: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  button {
+    font-size: 0.9em;
+    padding: 8px 16px;
+  }
+
+  #gorilaImg {
+    width: 80px;
+  }
+}
