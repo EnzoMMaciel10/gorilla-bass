@@ -38,3 +38,24 @@ button:hover {
   background-color: #388e3c;
 }
 
+#campoHumanos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 40px);
+  justify-content: center;
+  gap: 5px;
+  margin: 20px 0;
+  padding: 10px;
+}
+
+.humano {
+  width: 40px;
+  height: 40px;
+  transition: opacity 0.3s;
+}
+
+.morto {
+  opacity: 0.2;
+  filter: grayscale(100%);
+}
+
+
