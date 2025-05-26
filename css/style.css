@@ -73,3 +73,16 @@ button:hover {
   margin: 5px 0;
 }
 
+#gorilaContainer {
+  margin: 20px 0;
+}
+
+#gorilaImg {
+  width: 150px;
+  height: auto;
+  transition: transform 0.2s;
+}
+
+#gorilaImg.atacando {
+  transform: scale(1.1) rotate(-5deg);
+}
