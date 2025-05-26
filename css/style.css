@@ -58,4 +58,18 @@ button:hover {
   filter: grayscale(100%);
 }
 
+#log {
+  background: #fff;
+  border: 1px solid #aaa;
+  padding: 10px;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+  height: 200px;
+  overflow-y: auto;
+}
+
+#log p {
+  margin: 5px 0;
+}
 
