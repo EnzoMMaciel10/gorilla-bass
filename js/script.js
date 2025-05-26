@@ -127,3 +127,24 @@ setInterval(() => {
     verificarFimDeJogo();
   }
 }, 1300);
+
+function atacar() {
+  if (humanos.filter(h => h).length === 0) return;
+  somAtaque.play();
+
+  const gorilaImg = document.getElementById('gorilaImg');
+  gorilaImg.classList.add('atacando');
+  setTimeout(() => gorilaImg.classList.remove('atacando'), 300);
+
+  let eliminados = 0;
+  for (let i = 0; i < humanos.length; i++) {
+    if (humanos[i] && eliminados < 3) {
+      humanos[i] = false;
+      eliminados++;
+    }
+  }
+  gorila.ataques++;
+  registrarLog(`Gorila atacou e eliminou ${eliminados} humano(s)!`);
+  atualizarInterface();
+  verificarFimDeJogo();
+}
