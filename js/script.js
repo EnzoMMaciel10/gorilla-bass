@@ -73,3 +73,57 @@ function curar() {
     atualizarInterface();
   }
 }
+
+function salvarEstado() {
+  localStorage.setItem('gorila', JSON.stringify(gorila));
+  localStorage.setItem('humanos', JSON.stringify(humanos));
+  localStorage.setItem('humanosVivos', humanos.filter(h => h).length);
+}
+
+function carregarEstado() {
+  const gorilaSalvo = JSON.parse(localStorage.getItem('gorila'));
+  const humanosSalvos = JSON.parse(localStorage.getItem('humanos'));
+  if (gorilaSalvo && humanosSalvos) {
+    gorila = gorilaSalvo;
+    humanos = humanosSalvos;
+  }
+  atualizarInterface();
+}
+
+function verificarFimDeJogo() {
+  if (gorila.vida <= 0) {
+    alert('O gorila foi derrotado!');
+    localStorage.clear();
+    location.reload();
+  }
+  if (humanos.filter(h => h).length === 0) {
+    alert('Todos os humanos foram eliminados!');
+    localStorage.clear();
+    location.reload();
+  }
+}
+
+function recomecarJogo() {
+  gorila = { vida: 100, ataques: 0 };
+  humanos = Array(100).fill(true);
+  localStorage.clear();
+  atualizarInterface();
+  registrarLog('Jogo reiniciado!');
+}
+
+btnAtacar.addEventListener('click', atacar);
+btnDefender.addEventListener('click', defender);
+btnCurar.addEventListener('click', curar);
+btnRecomecar.addEventListener('click', recomecarJogo);
+
+carregarEstado();
+
+
+setInterval(() => {
+  if (Math.random() < 0.4 && gorila.vida > 0) {
+    gorila.vida -= 3;
+    registrarLog('Os humanos atacaram! Gorila perdeu 3 de vida.');
+    atualizarInterface();
+    verificarFimDeJogo();
+  }
+}, 1300);
