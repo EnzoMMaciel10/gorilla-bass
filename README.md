@@ -39,6 +39,8 @@ Neste projeto, vocês irão criar uma página interativa com HTML, CSS e JavaScr
 ---
 
 ## 📁 Estrutura sugerida
+```
+
 gorilla-bass/
 ├── index.html
 ├── README.md
@@ -50,6 +52,8 @@ gorilla-bass/
 │   ├── gorila.png
 │   ├── humano.png
 │   └── som-ataque.mp3
+
+```
 
 ---
 
