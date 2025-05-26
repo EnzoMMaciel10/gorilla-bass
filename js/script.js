@@ -41,3 +41,35 @@ function registrarLog(mensagem) {
   p.textContent = mensagem;
   logDiv.prepend(p);
 }
+
+function atacar() {
+  if (humanos.filter(h => h).length === 0) return;
+  somAtaque.play();
+  let eliminados = 0;
+  for (let i = 0; i < humanos.length; i++) {
+    if (humanos[i] && eliminados < 3) {
+      humanos[i] = false;
+      eliminados++;
+    }
+  }
+  gorila.ataques++;
+  registrarLog(`Gorila atacou e eliminou ${eliminados} humano(s)!`);
+  atualizarInterface();
+  verificarFimDeJogo();
+}
+
+function defender() {
+  gorila.vida -= 1; // Reduz apenas 1 ponto de vida
+  registrarLog('Gorila se defendeu e perdeu apenas 1 de vida.');
+  atualizarInterface();
+  verificarFimDeJogo();
+}
+
+function curar() {
+  if (gorila.vida < 100) {
+    gorila.vida += 10;
+    if (gorila.vida > 100) gorila.vida = 100;
+    registrarLog('Gorila se curou em 10 pontos!');
+    atualizarInterface();
+  }
+}
