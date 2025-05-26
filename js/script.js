@@ -15,7 +15,7 @@ let gorila = {
 
 let humanos = Array(100).fill(true); // true = vivo
 
-const somAtaque = new Audio('assets/som-ataque.mp3');
+const somAtaque = new Audio('./assets/som-ataque.mp3');
 
 function atualizarInterface() {
   gorilaVidaSpan.textContent = gorila.vida;
@@ -29,7 +29,7 @@ function renderizarHumanos() {
   campoHumanos.innerHTML = '';
   humanos.forEach((vivo, i) => {
     const img = document.createElement('img');
-    img.src = 'assets/humano.png';
+    img.src = './assets/humano.png';
     img.classList.add('humano');
     if (!vivo) img.classList.add('morto');
     campoHumanos.appendChild(img);
@@ -121,8 +121,8 @@ carregarEstado();
 
 setInterval(() => {
   if (Math.random() < 0.4 && gorila.vida > 0) {
-    gorila.vida -= 3;
-    registrarLog('Os humanos atacaram! Gorila perdeu 3 de vida.');
+    gorila.vida -= 4;
+    registrarLog('Os humanos atacaram! Gorila perdeu 4 de vida.');
     atualizarInterface();
     verificarFimDeJogo();
   }
