@@ -16,3 +16,25 @@ header h1 {
   margin-bottom: 20px;
 }
 
+#botoes {
+  margin: 20px 0;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 5px;
+  font-size: 1em;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  background-color: #2e7d32;
+  color: white;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #333;
+  background-color: #388e3c;
+}
+
