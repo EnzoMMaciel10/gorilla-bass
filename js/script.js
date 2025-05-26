@@ -13,7 +13,7 @@ let gorila = {
   ataques: 0,
 };
 
-let humanos = Array(100).fill(true); // true = vivo
+let humanos = Array(100).fill(true);
 
 const somAtaque = new Audio('./assets/som-ataque.mp3');
 
@@ -42,24 +42,9 @@ function registrarLog(mensagem) {
   logDiv.prepend(p);
 }
 
-function atacar() {
-  if (humanos.filter(h => h).length === 0) return;
-  somAtaque.play();
-  let eliminados = 0;
-  for (let i = 0; i < humanos.length; i++) {
-    if (humanos[i] && eliminados < 3) {
-      humanos[i] = false;
-      eliminados++;
-    }
-  }
-  gorila.ataques++;
-  registrarLog(`Gorila atacou e eliminou ${eliminados} humano(s)!`);
-  atualizarInterface();
-  verificarFimDeJogo();
-}
 
 function defender() {
-  gorila.vida -= 1; // Reduz apenas 1 ponto de vida
+  gorila.vida -= 1; 
   registrarLog('Gorila se defendeu e perdeu apenas 1 de vida.');
   atualizarInterface();
   verificarFimDeJogo();
