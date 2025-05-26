@@ -1,0 +1,139 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #e0ffe0;
+  color: #222;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  margin-bottom: 20px;
+}
+
+#painel-status {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+#botoes {
+  margin: 20px 0;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 5px;
+  font-size: 1em;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  background-color: #2e7d32;
+  color: white;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #333;
+  background-color: #388e3c;
+}
+
+#campoHumanos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 40px);
+  justify-content: center;
+  gap: 5px;
+  margin: 20px 0;
+  padding: 10px;
+}
+
+.humano {
+  width: 40px;
+  height: 40px;
+  transition: opacity 0.3s;
+}
+
+.morto {
+  opacity: 0.2;
+  filter: grayscale(100%);
+}
+
+#log {
+  background: #fff;
+  border: 1px solid #aaa;
+  padding: 10px;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+  height: 200px;
+  overflow-y: auto;
+}
+
+#log p {
+  margin: 5px 0;
+}
+
+#gorilaContainer {
+  margin: 20px 0;
+}
+
+#gorilaImg {
+  width: 150px;
+  height: auto;
+  transition: transform 0.2s;
+}
+
+#gorilaImg.atacando {
+  transform: scale(1.1) rotate(-5deg);
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  header h1 {
+    font-size: 1.5em;
+  }
+
+  #painel-status {
+    font-size: 1em;
+  }
+
+  #botoes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  button {
+    width: 90%;
+    max-width: 300px;
+    margin: 8px 0;
+  }
+
+  #campoHumanos {
+    grid-template-columns: repeat(auto-fill, minmax(30px, 1fr));
+    gap: 3px;
+  }
+
+  #log {
+    max-width: 100%;
+    height: 150px;
+  }
+
+  #gorilaImg {
+    width: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  button {
+    font-size: 0.9em;
+    padding: 8px 16px;
+  }
+
+  #gorilaImg {
+    width: 80px;
+  }
+}
